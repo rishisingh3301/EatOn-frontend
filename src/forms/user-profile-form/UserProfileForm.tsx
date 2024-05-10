@@ -3,7 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import LoadingButton from "@/components/LoadingButton";
+// import LoadingButton from "@/components/LoadingButton";
 import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
@@ -22,7 +22,8 @@ type Props = {
     isLoading: boolean;
 }
 
-const UserProfileForm = ({ onSave, isLoading,
+const UserProfileForm = ({ onSave, 
+    // isLoading,
     // currentUser 
 }: Props) => {
     const form = useForm<UserFormData>({
@@ -33,7 +34,7 @@ const UserProfileForm = ({ onSave, isLoading,
     // useEffect(() => {
     //     form.reset(currentUser);
     //   }, [currentUser, form]);
-    
+
 
     return (
         <Form {...form}>
@@ -96,12 +97,8 @@ const UserProfileForm = ({ onSave, isLoading,
                     )} />
 
                 </div>
-
-                {isLoading ? (
-                    <LoadingButton />
-                ) : (
-                    <Button type="submit" className="bg-orange-500">Submit</Button>
-                )}
+                <Button type="submit" className="bg-orange-500">Submit</Button>
+               
             </form>
         </Form>
     );
