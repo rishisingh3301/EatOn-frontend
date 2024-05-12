@@ -24,7 +24,7 @@ const formSchema = z
       required_error: "country name is required",
     }),
     deliveryPrice: z.coerce.number({
-      required_error: "delivery price is required",
+      required_error: "delivery charge is required",
       invalid_type_error: "must be a valid number",
     }),
     estimatedDeliveryTime: z.coerce.number({
