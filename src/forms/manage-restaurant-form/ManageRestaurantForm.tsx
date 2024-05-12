@@ -61,7 +61,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       cuisines: [],
-      menuItems: [{ name: "", price: 0 }],
+      menuItems: [{ name: ""}],
     },
   });
 
@@ -70,7 +70,6 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       return;
     }
 
-    // price lowest domination of 100 = 100pence == 1GBP
     const deliveryPriceFormatted = parseInt(
       (restaurant.deliveryPrice / 100).toFixed(2)
     );
