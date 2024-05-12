@@ -37,7 +37,7 @@ const formSchema = z
     menuItems: z.array(
       z.object({
         name: z.string().min(1, "name is required"),
-        price: z.coerce.number().min(1, "price isi required"),
+        price: z.coerce.number().min(1, "price is required"),
       })
     ),
     imageUrl: z.string().optional(),
