@@ -1,5 +1,4 @@
 export const cuisineList = [
-  "Indian",
   "American",
   "BBQ",
   "Breakfast",
@@ -10,6 +9,7 @@ export const cuisineList = [
   "French",
   "Greek",
   "Healthy",
+  "Indian",
   "Italian",
   "Japanese",
   "Mexican",

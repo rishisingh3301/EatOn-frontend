@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import DetailsSection from "./DetailsSection";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@radix-ui/react-separator";
 import CuisinesSection from "./CuisinesSection";
 import MenuSection from "./MenuSection";
 import ImageSection from "./ImageSection";
@@ -15,13 +15,13 @@ import { useEffect } from "react";
 const formSchema = z
   .object({
     restaurantName: z.string({
-      required_error: "restuarant name is required",
+      required_error: "restaurant name is required",
     }),
     city: z.string({
-      required_error: "city is required",
+      required_error: "city name is required",
     }),
     country: z.string({
-      required_error: "country is required",
+      required_error: "country name is required",
     }),
     deliveryPrice: z.coerce.number({
       required_error: "delivery price is required",
@@ -37,7 +37,7 @@ const formSchema = z
     menuItems: z.array(
       z.object({
         name: z.string().min(1, "name is required"),
-        price: z.coerce.number().min(1, "price is required"),
+        price: z.coerce.number().min(1, "price isi required"),
       })
     ),
     imageUrl: z.string().optional(),
@@ -70,7 +70,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       return;
     }
 
-    // price lowest domination of 100 = 100paisa == 1Rupee
+    // price lowest domination of 100 = 100pence == 1GBP
     const deliveryPriceFormatted = parseInt(
       (restaurant.deliveryPrice / 100).toFixed(2)
     );
@@ -131,11 +131,9 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
         <DetailsSection />
         <Separator />
         <CuisinesSection />
-        <Separator />
         <MenuSection />
-        <Separator />
         <ImageSection />
-        {isLoading ? <LoadingButton /> : <Button className="bg-orange-500" type="submit">Submit</Button>}
+        {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
       </form>
     </Form>
   );

@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 type Props = {
   children: React.ReactNode;
   showHero?: boolean;
-}
+};
 
 const Layout = ({ children, showHero = false }: Props) => {
   return (
@@ -15,8 +15,7 @@ const Layout = ({ children, showHero = false }: Props) => {
       <div className="container mx-auto flex-1 py-10">{children}</div>
       <Footer />
     </div>
-
-  )
-}
+  );
+};
 
 export default Layout;
