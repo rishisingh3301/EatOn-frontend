@@ -22,7 +22,9 @@ type Props = {
   searchQuery?: string;
 };
 
-const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
+const SearchBar = ({ onSubmit,
+  //  onReset,
+    placeHolder, searchQuery }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,15 +36,15 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
     form.reset({ searchQuery });
   }, [form, searchQuery]);
 
-  const handleReset = () => {
-    form.reset({
-      searchQuery: "",
-    });
+  // const handleReset = () => {
+  //   form.reset({
+  //     searchQuery: "",
+  //   });
 
-    if (onReset) {
-      onReset();
-    }
-  };
+  //   if (onReset) {
+  //     onReset();
+  //   }
+  // };
 
   return (
     <Form {...form}>
@@ -73,14 +75,14 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
           )}
         />
 
-        <Button
+        {/* <Button
           onClick={handleReset}
           type="button"
           variant="outline"
           className="rounded-full"
         >
           Reset
-        </Button>
+        </Button> */}
         <Button type="submit" className="rounded-full bg-orange-500">
           Search
         </Button>
